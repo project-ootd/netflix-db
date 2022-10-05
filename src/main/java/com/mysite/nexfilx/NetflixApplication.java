@@ -1,13 +1,13 @@
-package com.mysite.sbb;
+package com.mysite.nexfilx;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SbbApplication {
+public class NetflixApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SbbApplication.class, args);
+		SpringApplication.run(NetflixApplication.class, args);
 	}
 
 }
