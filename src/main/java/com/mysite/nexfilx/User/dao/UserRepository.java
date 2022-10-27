@@ -1,11 +1,11 @@
 package com.mysite.nexfilx.User.dao;
 
-import com.mysite.nexfilx.User.main.user;
+import com.mysite.nexfilx.User.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<user,Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<user> findByUserEmail(String userEmail);
+
 }
