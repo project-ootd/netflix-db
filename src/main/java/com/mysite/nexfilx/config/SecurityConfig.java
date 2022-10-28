@@ -22,11 +22,22 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/**").permitAll()
                 .and()
-                .csrf().ignoringAntMatchers("/h2-console/**")
-                .and()
+                .csrf().disable()
                 .headers()
                 .addHeaderWriter(new XFrameOptionsHeaderWriter(
                         XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
+                .and()
+                .formLogin()
+                .loginPage("/user/login")
+                .defaultSuccessUrl("/")
+                .and()
+                .authorizeRequests(authorize -> authorize
+                        .anyRequest()
+                        .permitAll()
+                )
+
+
+
         ;
         return http.build();
     }
