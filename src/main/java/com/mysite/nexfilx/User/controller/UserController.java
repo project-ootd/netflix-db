@@ -24,14 +24,19 @@ public class UserController {
 
     @PostMapping("/join")
     public String setUser(@RequestBody User user) {
-        user.setUseremail(user.getUseremail());
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//        user.setPassword(user.getPassword());
 
-        userService.join(user.getUseremail(), user.getPassword());
+
+        userService.join(user);
 
 
         return "회원가입 완료";
+    }
+
+    @PostMapping("login")
+    public User login(@RequestBody User user) {
+        User loginedUser =  userService.login(user);
+
+        return loginedUser;
     }
 
 //    @PostMapping("/login")
@@ -39,11 +44,11 @@ public class UserController {
 //        return "로그인 완료";
 //    }
 
-    @PostMapping("/login")
-    public UserDto login(@RequestBody User user) throws Exception {
-        UserDto loginedUser = userService.login(user);
-        return loginedUser;
-    }
+//    @PostMapping("/login")
+//    public UserDto login(@RequestBody User user) throws Exception {
+//        UserDto loginedUser = userService.login(user);
+//        return loginedUser;
+//    }
 
 
 

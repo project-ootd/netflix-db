@@ -14,7 +14,7 @@ import org.springframework.security.web.header.writers.frameoptions.XFrameOption
 public class SecurityConfig {
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
