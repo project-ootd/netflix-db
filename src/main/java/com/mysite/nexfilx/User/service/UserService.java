@@ -24,7 +24,6 @@ public class UserService {
         userRepository.save(user);
         return user;
 
-
     }
 
     public User login(User user) {
