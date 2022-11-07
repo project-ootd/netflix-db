@@ -1,5 +1,6 @@
 package com.mysite.nexfilx.kakao.controller;
 
+import com.mysite.nexfilx.kakao.ReadyResponse;
 import com.mysite.nexfilx.kakao.service.KakaoPay;
 import lombok.Setter;
 import lombok.extern.java.Log;
@@ -7,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.URL;
 
 @Log
 @Controller
@@ -19,7 +18,7 @@ public class SampleController {
     private KakaoPay kakaopay;
 
 
-    @GetMapping("/test")
+    @GetMapping("test")
     public String test1() {
         return "testPage";
     }
@@ -27,21 +26,42 @@ public class SampleController {
 
     @GetMapping("/kakaoPay")
     public void kakaoPayGet() {
+        log.info("kakaopay get............................................");
 
     }
 
-    @PostMapping("/kakaoPay")
-    public String kakaoPay() {
-        log.info("kakaoPay post............................................");
 
-        return "redirect:" + kakaopay.kakaoPayReady();
+    @PostMapping("kakaoPay")
+    public String payReady(Model model) {
 
+//        ReadyResponse readyResponse = kakaopay.payReady();
+
+//        model.addAttribute("tid", readyResponse.getTid());
+//        log.info("결재고유 번호: " + readyResponse.getTid());
+        log.info("kakaoPay POST !!!!");
+
+
+        return "redirect:" + kakaopay.payReady();
     }
+
+//    @PostMapping("/kakaoPay")
+//    public ReadyResponse kakaoPay() {
+//        log.info("kakaoPay post............................................");
+//
+////        return kakaopay.payReady(1);
+//            return kakaopay.payReady();
+//    }
 
     @GetMapping("/kakaoPaySuccess")
     public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model) {
         log.info("kakaoPaySuccess get............................................");
         log.info("kakaoPaySuccess pg_token : " + pg_token);
+
+    }
+
+    @GetMapping("/approval")
+    public void approval() {
+        log.info("approval get............................................");
 
     }
 
