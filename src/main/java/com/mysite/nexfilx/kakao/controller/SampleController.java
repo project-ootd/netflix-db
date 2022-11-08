@@ -1,5 +1,7 @@
 package com.mysite.nexfilx.kakao.controller;
 
+import com.mysite.nexfilx.User.domain.User;
+import com.mysite.nexfilx.User.dto.UserDto;
 import com.mysite.nexfilx.kakao.ReadyResponse;
 import com.mysite.nexfilx.kakao.service.KakaoPay;
 import lombok.Setter;
@@ -32,7 +34,7 @@ public class SampleController {
 
 
     @PostMapping("kakaoPay")
-    public String payReady(Model model) {
+    public String payReady(Model model, UserDto userDto) {
 
 //        ReadyResponse readyResponse = kakaopay.payReady();
 
@@ -41,7 +43,7 @@ public class SampleController {
         log.info("kakaoPay POST !!!!");
 
 
-        return "redirect:" + kakaopay.payReady();
+        return "redirect:" + kakaopay.payReady(userDto);
     }
 
 //    @PostMapping("/kakaoPay")
