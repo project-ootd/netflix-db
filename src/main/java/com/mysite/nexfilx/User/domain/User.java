@@ -23,5 +23,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(columnDefinition = "tinyint(1) default 0", nullable = false)
+    private Boolean auth;
+
 
 }
