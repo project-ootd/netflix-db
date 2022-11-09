@@ -4,6 +4,8 @@ package com.mysite.nexfilx.User.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -23,8 +25,11 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(columnDefinition = "tinyint(1) default 0", nullable = false)
+    @Column(columnDefinition = "tinyint(1)", nullable = false)
     private Boolean auth;
+
+    @Column
+    private Date lastPaymentDate;
 
 
 }
