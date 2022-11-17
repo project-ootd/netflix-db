@@ -6,6 +6,7 @@ public class ReadyResponseVO {
     private String tid; // 결제 번호
     private String next_redirect_pc_url; // 결제 완료시 이동할 페이지
     private String partner_order_id; // 주문한 사람 ID
+    private String user_Id;
 
 //
 //    public ReadyResponseVO(String tid, String next_redirect_pc_url, String partner_order_id) {

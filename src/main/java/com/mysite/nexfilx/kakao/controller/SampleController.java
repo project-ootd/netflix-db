@@ -34,7 +34,7 @@ public class SampleController {
 
 
     @PostMapping("kakaoPay")
-    public String payReady(Model model, UserDto userDto) {
+    public String payReady(UserDto userDto) {
 
 //        ReadyResponse readyResponse = kakaopay.payReady();
 

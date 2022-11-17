@@ -8,4 +8,5 @@ import java.util.Date;
 public class UserDto {
     private String useremail;
     private String  nowdate;
+    private String lastPaymentDate;
 }

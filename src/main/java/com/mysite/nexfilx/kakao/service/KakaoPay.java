@@ -42,7 +42,7 @@ public class KakaoPay {
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
         params.add("cid", "TC0ONETIME"); // 가맹정 코드 (test는 카카오에서 제공하는 샘플 코드 사용)
-        params.add("partner_order_id", userDto.getNowdate()+"0002"); // 주문 번호
+        params.add("partner_order_id", userDto.getNowdate()+"test"); // 주문 번호
         params.add("partner_user_id", userDto.getUseremail()); // 주문자 아이디
         params.add("item_name", "넷플릭스 스탠다드"+userDto.getUseremail()); // 상품 이름
         params.add("quantity", "1"); // 상품 수량

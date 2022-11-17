@@ -1,15 +1,14 @@
 package com.mysite.nexfilx.order.service;
 
 import com.mysite.nexfilx.User.dao.UserRepository;
-import com.mysite.nexfilx.User.domain.User;
 import com.mysite.nexfilx.order.dao.OrderRepository;
 import com.mysite.nexfilx.order.domain.Payorder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 @Service
@@ -19,19 +18,29 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
 
-    int num = 1;
+    int num = 2;
+
+    LocalDate currentDate = LocalDate.now();
+//    LocalDate myDate = LocalDate.of();
 
 
     public Payorder setOrder(Payorder payorder) {
-//        System.out.println("getOrderId"+payorder.getOrderId());
-//        System.out.println("getOrderNum"+payorder.getOrderNum());
-//        System.out.println("getOrderDate"+payorder.getOrderDate());
 
+        Date nowDate = payorder.getOrderDate();
+//        LocalDate localDate = nowDate.toInstant()   // Date -> Instant
+//                .atZone(ZoneId.systemDefault())  // Instant -> ZonedDateTime
+//                .toLocalDate(); // ZonedDateTime -> LocalDate
+//        System.out.println(currentDate.plusDays(30));
+//        System.out.println(localDate);
+//        if (currentDate.plusDays(30).isBefore(localDate)) {
+//            System.out.println("조건문 통과 !!!");
+//            return null;
+//        }
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");   // yyyy-MM-dd HH:mm:ss
-        System.out.printf("Date" + formatter.format(payorder.getOrderDate()));
-//        payorder.setOrderDate( formatter);
-        String format = formatter.format(payorder.getOrderDate())+"-000-" + num;
+        System.out.printf("Date" + formatter.format(nowDate));
+
+        String format = formatter.format(nowDate)+"-000-" + num;
         num++;
         payorder.setOrderNum(format);
         orderRepository.save(payorder);
