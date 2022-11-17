@@ -31,5 +31,4 @@ public class User {
     @Column
     private Date lastPaymentDate;
 
-
 }

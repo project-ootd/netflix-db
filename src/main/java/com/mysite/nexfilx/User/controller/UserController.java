@@ -8,6 +8,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/v1/user")
 @RequiredArgsConstructor
@@ -49,6 +51,15 @@ public class UserController {
 //        UserDto loginedUser = userService.login(user);
 //        return loginedUser;
 //    }
+
+
+    @PostMapping("/getLastPayDate")
+    public Optional<User> getLastPaymentDate(@RequestBody UserDto userDto) {
+        Optional<User> findDate =  userService.getLastDate(userDto);
+        return findDate;
+    }
+
+
 
 
 
