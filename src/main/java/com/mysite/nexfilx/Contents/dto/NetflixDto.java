@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +18,8 @@ public class NetflixDto {
 
 
     private String contentNum;
+
+    private String contentId;
     private String contentName;
     private int episodes;
     private String date;
@@ -34,6 +38,7 @@ public class NetflixDto {
     private String detailTextImg;
 
     private String mainStory;
+
 
     public NetflixDto(NetflixContents netflixContents) {
         id = netflixContents.getId();
