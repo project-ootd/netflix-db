@@ -15,14 +15,21 @@ public class NetflixContents {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @Column
     private String contentNum;
+
+    @Column(unique = true)
+    private String contentId;
+
+    @Column
     private String contentName;
     private int episodes;
     private String date;
     private String actor;
     private int age;
     private String director;
+
 
     @Lob
     private String contentImg;
@@ -36,5 +43,6 @@ public class NetflixContents {
     private String detailTextImg;
 
     private String mainStory;
+
 
 }

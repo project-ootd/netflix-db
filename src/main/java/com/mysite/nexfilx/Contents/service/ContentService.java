@@ -1,6 +1,7 @@
 package com.mysite.nexfilx.Contents.service;
 
 import com.mysite.nexfilx.Contents.dao.ContentRepository;
+import com.mysite.nexfilx.Contents.domain.NetflixContentDetails;
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
 import com.mysite.nexfilx.Contents.dto.NetflixDto;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,8 @@ import java.util.List;
 @Service
 public class ContentService {
     private final ContentRepository contentRepository;
+
+
 
     public List<NetflixDto> getNetflixContentsByContentNum(String keyword) {
         return contentRepository.findByContentNumContaining(keyword).stream()
@@ -33,5 +36,9 @@ public class ContentService {
 
     public List<NetflixContents> getNetflixContents() {
         return contentRepository.findAll();
+    }
+
+    public List<NetflixContentDetails> getNetflixContentDetail(String contentNum) {
+        return contentRepository.findByContentNum(contentNum);
     }
 }

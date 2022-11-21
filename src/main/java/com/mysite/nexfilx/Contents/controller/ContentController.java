@@ -1,7 +1,9 @@
 package com.mysite.nexfilx.Contents.controller;
 
 import com.mysite.nexfilx.Contents.dao.ContentRepository;
+import com.mysite.nexfilx.Contents.domain.NetflixContentDetails;
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
+import com.mysite.nexfilx.Contents.dto.NetflixDetailDto;
 import com.mysite.nexfilx.Contents.dto.NetflixDto;
 import com.mysite.nexfilx.Contents.service.ContentService;
 import lombok.RequiredArgsConstructor;
@@ -39,5 +41,10 @@ public class ContentController {
     @GetMapping("/allcontent")
     public List<NetflixContents> getContentAll() {
         return  contentService.getNetflixContents();
+    }
+
+    @PostMapping("/subcontent")
+    public List<NetflixContentDetails> getSubContent(@RequestBody NetflixDetailDto netflixDetailDto) {
+        return contentService.getNetflixContentDetail(netflixDetailDto.getContentNum());
     }
 }
