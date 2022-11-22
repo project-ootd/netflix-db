@@ -30,7 +30,6 @@ public class ContentController {
     public List<NetflixDto> getKeywords(@PathVariable() String sk) {
 
         return contentService.getNetflixContentsBySearch(sk);
-
     }
 
     @GetMapping("/rank")
@@ -38,13 +37,5 @@ public class ContentController {
         return  contentService.getNetflixContentsByContentNum("KR-RANK");
     }
 
-    @GetMapping("/allcontent")
-    public List<NetflixContents> getContentAll() {
-        return  contentService.getNetflixContents();
-    }
 
-    @PostMapping("/subcontent")
-    public List<NetflixContentDetails> getSubContent(@RequestBody NetflixDetailDto netflixDetailDto) {
-        return contentService.getNetflixContentDetail(netflixDetailDto.getContentNum());
-    }
 }

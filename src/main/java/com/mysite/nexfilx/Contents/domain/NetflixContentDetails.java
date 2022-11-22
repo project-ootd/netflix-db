@@ -1,8 +1,10 @@
 package com.mysite.nexfilx.Contents.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,8 +18,9 @@ public class NetflixContentDetails {
     @Column(unique = true)
     private Long id;
 
+    @ManyToOne
+    private NetflixContents netflixContents;
 
-    private String contentNum;
     private int detailepisode;
 
     @Column

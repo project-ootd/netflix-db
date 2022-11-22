@@ -3,6 +3,7 @@ package com.mysite.nexfilx.Contents.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,11 +16,13 @@ public class NetflixContents {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column
     private String contentNum;
 
     @Column(unique = true)
+    @OneToMany(mappedBy = "netflixContents")
+    private List<NetflixContentDetails> details;
+
     private String contentId;
 
     @Column
