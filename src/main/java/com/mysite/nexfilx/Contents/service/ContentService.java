@@ -35,9 +35,15 @@ public class ContentService {
                 .toList();
     }
 
-//    public List<NetflixContents> getNetflixContents() {
+
+    public List<NetflixDto> getNetflixContent() {
+        return contentRepository.findAll().stream()
+                .map(content -> {
+                    NetflixDto netflixDto = new NetflixDto(content);
+                    return netflixDto;
+                })
+                .toList();
+
 //        return contentRepository.findAll();
-//    }
-
-
+    }
 }
