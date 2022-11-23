@@ -32,6 +32,11 @@ public class ContentController {
         return contentService.getNetflixContentsBySearch(sk);
     }
 
+    @GetMapping("/allcontent")
+    public List<NetflixDto> getNetflixContents() {
+        return contentService.getNetflixContent();
+    }
+
     @GetMapping("/rank")
     public List<NetflixDto> getRankItems() {
         return  contentService.getNetflixContentsByContentNum("KR-RANK");

@@ -22,6 +22,8 @@ public class NetflixDto {
     private String contentNum;
 
     private List<NetflixDetailDto> detailDtos;
+
+    private String contentId;
     private String contentName;
     private int episodes;
     private String date;
@@ -46,6 +48,7 @@ public class NetflixDto {
         id = netflixContents.getId();
         contentNum = netflixContents.getContentNum();
         contentName = netflixContents.getContentName();
+        contentId = netflixContents.getContentId();
         detailDtos = new ArrayList<>();
         netflixContents.getDetails().stream()
                 .forEach(detail -> {
