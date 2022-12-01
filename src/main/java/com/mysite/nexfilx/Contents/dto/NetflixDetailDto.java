@@ -1,12 +1,10 @@
 package com.mysite.nexfilx.Contents.dto;
 
+import com.mysite.nexfilx.Contents.domain.NetflixContentDetails;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.Column;
-import javax.persistence.Lob;
 
 @Data
 @NoArgsConstructor
@@ -15,13 +13,20 @@ import javax.persistence.Lob;
 public class NetflixDetailDto {
     private Long id;
 
-
-    private String contentNum;
-    private int detailepisode;
+    private int detailEpisode;
 
     private int playtime;
 
     private String subStory;
 
     private String subImg;
+
+    public NetflixDetailDto(NetflixContentDetails netflixContentDetails) {
+        id = netflixContentDetails.getId();
+        detailEpisode = netflixContentDetails.getDetailepisode();
+        playtime = netflixContentDetails.getPlaytime();
+        subStory = netflixContentDetails.getSubStory();
+        subImg = netflixContentDetails.getSubImg();
+    }
+
 }

@@ -3,6 +3,7 @@ package com.mysite.nexfilx.Contents.service;
 import com.mysite.nexfilx.Contents.dao.ContentRepository;
 import com.mysite.nexfilx.Contents.domain.NetflixContentDetails;
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
+import com.mysite.nexfilx.Contents.dto.NetflixDetailDto;
 import com.mysite.nexfilx.Contents.dto.NetflixDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,11 +35,15 @@ public class ContentService {
                 .toList();
     }
 
-    public List<NetflixContents> getNetflixContents() {
-        return contentRepository.findAll();
-    }
 
-    public List<NetflixContentDetails> getNetflixContentDetail(String contentNum) {
-        return contentRepository.findByContentNum(contentNum);
+    public List<NetflixDto> getNetflixContent() {
+        return contentRepository.findAll().stream()
+                .map(content -> {
+                    NetflixDto netflixDto = new NetflixDto(content);
+                    return netflixDto;
+                })
+                .toList();
+
+//        return contentRepository.findAll();
     }
 }
