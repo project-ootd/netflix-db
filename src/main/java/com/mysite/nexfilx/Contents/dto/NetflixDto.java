@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,6 +20,8 @@ public class NetflixDto {
 
 
     private String contentNum;
+
+    private List<NetflixDetailDto> detailDtos;
 
     private String contentId;
     private String contentName;
@@ -44,6 +48,13 @@ public class NetflixDto {
         id = netflixContents.getId();
         contentNum = netflixContents.getContentNum();
         contentName = netflixContents.getContentName();
+        contentId = netflixContents.getContentId();
+        detailDtos = new ArrayList<>();
+        netflixContents.getDetails().stream()
+                .forEach(detail -> {
+                    NetflixDetailDto netflixDetailDto = new NetflixDetailDto(detail);
+                    detailDtos.add(netflixDetailDto);
+                });
         episodes = netflixContents.getEpisodes();
         date = netflixContents.getDate();
         actor = netflixContents.getActor();
