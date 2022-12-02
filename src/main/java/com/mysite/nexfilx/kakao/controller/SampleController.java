@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.*;
 //@RequestMapping("kakao")
 public class SampleController {
 
-    @Setter(onMethod_ = @Autowired)
+    @Setter
+    @Autowired
     private KakaoPay kakaopay;
 
 
