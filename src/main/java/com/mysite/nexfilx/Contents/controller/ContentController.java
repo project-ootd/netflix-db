@@ -43,4 +43,10 @@ public class ContentController {
     }
 
 
+
+    @GetMapping("/browse/my-list/check")
+    public List<NetflixDto> getchecklike(@RequestParam String useremail){
+//        System.out.println("이메일 : "+useremail);
+        return contentService.checkicon(useremail);
+    }
 }
