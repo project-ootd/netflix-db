@@ -1,6 +1,7 @@
 package com.mysite.nexfilx.Contents.dto;
 
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
+import com.mysite.nexfilx.likelist.dto.LikeListDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -43,6 +44,8 @@ public class NetflixDto {
 
     private String mainStory;
 
+    private boolean likeStatus;
+
 
     public NetflixDto(NetflixContents netflixContents) {
         id = netflixContents.getId();
@@ -67,4 +70,6 @@ public class NetflixDto {
         detailTextImg = netflixContents.getDetailTextImg();
         mainStory = netflixContents.getMainStory();
     }
+
+
 }
