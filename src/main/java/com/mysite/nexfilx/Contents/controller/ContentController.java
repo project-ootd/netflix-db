@@ -49,4 +49,10 @@ public class ContentController {
 //        System.out.println("이메일 : "+useremail);
         return contentService.checkicon(useremail);
     }
+    @GetMapping("/detail")
+    public List<NetflixContentDetails> getDetail(@RequestParam Long id){
+        return contentService.detailcheck(id);
+    }
+
+
 }
