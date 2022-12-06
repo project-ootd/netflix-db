@@ -5,6 +5,7 @@ import com.mysite.nexfilx.Contents.domain.NetflixContents;
 
 
 import com.mysite.nexfilx.Contents.dto.NetflixDto;
+import com.mysite.nexfilx.Contents.service.ContentService;
 import com.mysite.nexfilx.User.dao.UserRepository;
 import com.mysite.nexfilx.User.domain.User;
 import com.mysite.nexfilx.likelist.domain.LikeList;
@@ -20,8 +21,6 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-
-
 public class LikeListService {
     @Autowired
     private LikeListRepository likeListRepository;
@@ -33,7 +32,10 @@ public class LikeListService {
     @Autowired
     private LikeListRepositoryImpl likeListRepositoryImpl;
 
-    private NetflixDto netflixDto;
+
+    @Autowired
+    private ContentService contentService;
+
 
 
 
@@ -48,7 +50,8 @@ public class LikeListService {
         boolean rs = checkLike(user,netflixContents);
         //그에 따른 if문으로 작성.
         LikeList likeList = new LikeList();
-
+//        List<NetflixContents> netflixContentsList = contentRepository.findByLikeStatus(netflixContents.getId());
+        NetflixDto netflixDto = new NetflixDto();
         if(!rs) {
             System.out.println("추가 실행됨");
             likeList.setUser(user);
@@ -56,10 +59,12 @@ public class LikeListService {
 
             likeListRepository.save(likeList);
 
+
             return true;
         }else{
             System.out.println("삭제 실행됨");
             likeList=likeListRepository.findByUserIdAndNetflixContentsId(user.getId(),netflixContents.getId()).orElseThrow(()-> new NullPointerException());
+
             likeListRepository.delete(likeList);
 
             return false;
@@ -77,12 +82,5 @@ public class LikeListService {
         List<NetflixContents> likeList = likeListRepositoryImpl.getQslUserLike(user.getId());
         return likeList;
     }
-//    public boolean checkicon(String useremail){
-//        User user = userRepository.findByUseremail(useremail).orElseThrow(()-> new RuntimeException());
-//
-//             boolean netflixContentsID =  likeListRepositoryImpl.getQslUserCheckIcon(user.getId());
-////        System.out.println(netflixContentsID);
-//        return netflixContentsID;
-//
-//    }
+
 }
