@@ -30,20 +30,5 @@ public class LikeListRepositoryImpl implements LikeListRepositoryCustom{
         return list;
     }
 
-//    @Override
-//    public boolean getQslUserCheckIcon(Long id) {
-//        List<Tuple> check = jpaQueryFactory
-//                .select(likeList.user.id,likeList.netflixContents.id)
-//                .from(netflixContents)
-//                .innerJoin(likeList)
-//                .on(likeList.netflixContents.id.eq(netflixContents.id))
-//                .fetch();
-//        if(check == null){
-//            System.out.println(check);
-//            return false;
-//        }else {
-//            System.out.println(check);
-//            return true;
-//        }
-//    }
+
 }

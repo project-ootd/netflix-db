@@ -19,6 +19,7 @@ public class NetflixContentDetails {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     private NetflixContents netflixContents;
 
     private int detailepisode;

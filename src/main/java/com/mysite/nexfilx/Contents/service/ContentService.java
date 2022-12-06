@@ -8,7 +8,6 @@ import com.mysite.nexfilx.Contents.dto.NetflixDto;
 import com.mysite.nexfilx.User.dao.UserRepository;
 import com.mysite.nexfilx.User.domain.User;
 import com.mysite.nexfilx.likelist.domain.LikeList;
-import com.mysite.nexfilx.likelist.dto.LikeListDto;
 import com.mysite.nexfilx.likelist.repository.LikeListRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -68,7 +67,8 @@ public class ContentService {
         // 위에서 변경해준 user의 id값을 가져와서 likelist도 전체 조회를 할 수 있게 해준다.
         List<LikeList> likeLists = likeListRepository.findByUserId(user.get().getId());
 
-    return netflixContents.stream()
+
+        return netflixContents.stream()
             .map(contents -> {
                 // 람다식에서 boolean 값을 사용하게 해주는 멀티쓰레드환경 동시성 보장 자료형이며 기본값은 기존 boolean과 같이 false이다.
                 AtomicBoolean likeStatus = new AtomicBoolean();
@@ -83,10 +83,32 @@ public class ContentService {
                 NetflixDto netflixDto = NetflixDto.builder()
                         .id(contents.getId())
                         .contentNum(contents.getContentNum())
+                        .age(contents.getAge())
+                        .contentImg(contents.getContentImg())
+                        .contentName(contents.getContentName())
+                        .contentVideo(contents.getContentVideo())
+                        .actor(contents.getActor())
+                        .director(contents.getDirector())
+                        .mainStory(contents.getMainStory())
                         .likeStatus(likeStatus.get())
+                        .detailImg(contents.getDetailImg())
+                        .detailTextImg(contents.getDetailImg())
+                        .episodes(contents.getEpisodes())
+                        .date(contents.getDate())
+                        .contentId(contents.getContentId())
+                        .rankingImg(contents.getRankingImg())
+
                         .build();
+                System.out.println("확인 ====================================="+netflixDto.isLikeStatus());
                 return netflixDto;
             }).collect(Collectors.toList());
 
     }
+    public List<NetflixContentDetails> detailcheck(Long id){
+        Optional<NetflixContents> netflixContents = this.contentRepository.findById(id);
+        System.out.println("==================================================================check======================"+netflixContents.get().getDetails());
+        List<NetflixContentDetails> netflixContentDetails = netflixContents.get().getDetails();
+        return netflixContentDetails;
+    }
+
 }
