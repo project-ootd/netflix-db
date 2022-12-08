@@ -26,8 +26,8 @@ public class ContentController {
         return contentService.getNetflixContentsByContentNum(keyword);
     }
 
-    @GetMapping("/search/{sk}")
-    public List<NetflixDto> getKeywords(@PathVariable() String sk) {
+    @GetMapping("/search")
+    public List<NetflixDto> getKeywords(@RequestParam String sk) {
 
         return contentService.getNetflixContentsBySearch(sk);
     }
@@ -46,13 +46,18 @@ public class ContentController {
 
     @GetMapping("/browse/my-list/check")
     public List<NetflixDto> getchecklike(@RequestParam String useremail){
-//        System.out.println("이메일 : "+useremail);
+
         return contentService.checkicon(useremail);
     }
     @GetMapping("/detail")
     public List<NetflixContentDetails> getDetail(@RequestParam Long id){
         return contentService.detailcheck(id);
     }
+    @GetMapping("/origin")
+    public List<NetflixDto> originAudio(){
+        return contentService.originSearch();
+    }
+
 
 
 }
