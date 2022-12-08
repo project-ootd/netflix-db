@@ -1,6 +1,7 @@
 package com.mysite.nexfilx.User.service;
 
 import com.mysite.nexfilx.User.dao.UserRepository;
+import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
 import com.mysite.nexfilx.User.dto.UserDto;
 import com.mysite.nexfilx.order.domain.Payorder;
@@ -9,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -60,7 +62,7 @@ public class UserService {
 //            }
 
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");   // yyyy-MM-dd HH:mm:ss
-            System.out.printf(formatter.format(payorder.getOrderDate()));
+            System.out.printf(formatter.format("Date : "+payorder.getOrderDate()));
 //            Date nowDate = formatter.format(payorder.getOrderDate());
 
             orderUser.setLastPaymentDate(payorder.getOrderDate());
@@ -76,7 +78,39 @@ public class UserService {
         return opDate;
     }
 
+    public User findId(String userId) {
+        return userRepository.findByUseremail(userId).orElseThrow();
+    }
 
+//    public List<User> getProfile(String userId) {
+//        return userRepository.findByUseremail(userId);
+////                .stream()
+////                .map(profile -> {
+////                    User user = new ProfileName(profile);
+////                    return user;
+////                })
+////                .toList();
+//
+////        return contentRepository.findAll();
+//    }
+
+
+//    public User setUserName(String useremail, String username, String gamename) {
+//
+//        Optional<User> opUser = userRepository.findByUseremail(useremail);
+//        if(opUser.isPresent()) {
+//            User loginedUser = opUser.get();
+//
+//            //            User loginedUser = opUser.get();
+//            loginedUser.setUserName(username);
+//            loginedUser.setGameName(gamename);
+//
+//
+//            userRepository.save(loginedUser);
+//        }
+//        return null;
+//
+//    }
 
 }
 
