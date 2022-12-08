@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public interface ContentRepository extends JpaRepository<NetflixContents, Long> {
     List<NetflixContents> findByContentNumContaining(String keyword);
@@ -15,6 +16,6 @@ public interface ContentRepository extends JpaRepository<NetflixContents, Long> 
 
 //    List<NetflixContents> findByLikeStatus(Long id);
 
-
+    Optional<NetflixContents> findById(Long id);
 
 }
