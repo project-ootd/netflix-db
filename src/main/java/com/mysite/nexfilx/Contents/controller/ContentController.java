@@ -26,10 +26,10 @@ public class ContentController {
         return contentService.getNetflixContentsByContentNum(keyword);
     }
 
-    @GetMapping("/search/{sk}")
-    public List<NetflixDto> getKeywords(@PathVariable() String sk) {
+    @GetMapping("/search")
+    public List<NetflixDto> getKeywords(@RequestParam("q") String q) {
 
-        return contentService.getNetflixContentsBySearch(sk);
+        return contentService.getNetflixContentsBySearch(q);
     }
 
     @GetMapping("/allcontent")
