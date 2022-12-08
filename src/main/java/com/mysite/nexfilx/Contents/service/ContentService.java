@@ -59,7 +59,7 @@ public class ContentService {
     }
 
     public List<NetflixDto> checkicon(String useremail) {
-        System.out.println("================User Email : "+useremail);
+
         // 컨텐츠 전부 조회를 해줘서 컨텐츠들을 가져온다.
         List<NetflixContents> netflixContents = contentRepository.findAll();
         // 가져온 유저의 email 값을 전체 조회 할 수 있는 User로 변경해준뒤
@@ -99,16 +99,23 @@ public class ContentService {
                         .rankingImg(contents.getRankingImg())
 
                         .build();
-                System.out.println("확인 ====================================="+netflixDto.isLikeStatus());
+
                 return netflixDto;
             }).collect(Collectors.toList());
 
     }
     public List<NetflixContentDetails> detailcheck(Long id){
         Optional<NetflixContents> netflixContents = this.contentRepository.findById(id);
-        System.out.println("==================================================================check======================"+netflixContents.get().getDetails());
         List<NetflixContentDetails> netflixContentDetails = netflixContents.get().getDetails();
         return netflixContentDetails;
     }
 
+    public List<NetflixDto> originSearch(){
+        return contentRepository.findAll().stream()
+                .map(content -> {
+                    NetflixDto netflixDto = new NetflixDto(content);
+                    return netflixDto;
+                })
+                .toList();
+    }
 }
