@@ -25,13 +25,6 @@ public class ProfileNameService {
 
         profileRepository.save(profileName2);
 
-//        Optional<ProfileName> opProfileName = profileRepository.findByUseremail(profileName.getUseremail());
-//        if (opProfileName.isPresent()) {
-//            ProfileName profileName1 = opProfileName.get();
-//            profileName1.setProfilename(profileName.getProfilename());
-//
-//            profileRepository.save(profileName1);
-//        }
     }
 
 
@@ -42,28 +35,20 @@ public class ProfileNameService {
         return userProfileDto;
     }
 
+    public void updateProfile(User user, ProfileName profileName) {
+//        profileRepository.delete(ProfileName.builder()
+//                        .id(profileName.getId())
+//                .build());
+         profileRepository.save(ProfileName.builder()
+                 .id(profileName.getId())
+                 .user(user)
+                 .nickname(profileName.getNickname())
+                 .build());
+    }
 
-
-
-//    public User setUserName(UserDto userDto) {
-//        Optional<User> opUser = userRepository.findByUseremail(userDto.getUseremail());
-//        if(opUser.isPresent()) {
-//            User loginedUser = opUser.get();
-//
-//
-////            loginedUser.setUserName(userDto.getUserName());
-//            loginedUser.setGameName(userDto.getGameName());
-//
-//
-//            userRepository.save(loginedUser);
-//        }
-//        return null;
-//    }
-//
-//    public User getUserName(String useremail) {
-//        Optional<User> opUser = userRepository.findByUseremail(useremail);
-//        User loginedUser = opUser.get();
-//
-//        return loginedUser;
-//    }
+    public void deleteProfile(ProfileName profileName) {
+        profileRepository.delete(ProfileName.builder()
+                .id(profileName.getId())
+                .build());
+    }
 }

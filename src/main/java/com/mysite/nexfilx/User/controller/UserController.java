@@ -71,7 +71,7 @@ public class UserController {
 
 
     @PostMapping("/profile")
-    public void setUserName(@RequestBody ProfileName profileName, @RequestParam("userId") String userId){
+    public void setUserName(@RequestBody ProfileName profileName, @RequestParam("useremail") String userId){
 
         System.out.println(userId);
 
@@ -82,28 +82,26 @@ public class UserController {
     }
 
 
-
-
-
-//    @GetMapping("/getProfile")
-//    public User getUserName(@RequestParam String useremail){
-//        System.out.print("아이디" + useremail);
-//
-//        return userService.getProfile(useremail);
-//
-//    }
-
-//    @GetMapping("/getProfile")
-//    public List<ProfileName> getNetflixContents() {
-//        return profileNameService.getProfile();
-//    }
-
     @GetMapping("/getProfile")
     public UserProfileDto getNetflixContents(@RequestParam("useremail") String userId) {
 
         User user = userService.findId(userId);
 
         return profileNameService.getProfile(user);
+    }
+
+    @PatchMapping("updateprofile")
+    public void updateProfile(@RequestParam("useremail") String userId, @RequestBody ProfileName profileName) {
+        User user = userService.findId(userId);
+        System.out.println("user : " + user);
+        System.out.println("profileName : " + profileName.getId());
+
+        profileNameService.updateProfile(user, profileName);
+    }
+
+    @PostMapping("deleteprofile")
+    public void deleteProfile(@RequestBody ProfileName profileName) {
+        profileNameService.deleteProfile(profileName);
     }
 
 
