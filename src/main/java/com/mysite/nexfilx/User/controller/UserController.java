@@ -1,13 +1,21 @@
 package com.mysite.nexfilx.User.controller;
 
+import com.mysite.nexfilx.Contents.domain.NetflixContents;
+import com.mysite.nexfilx.Contents.dto.NetflixDto;
+import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
+import com.mysite.nexfilx.User.dto.ProfileNameDto;
 import com.mysite.nexfilx.User.dto.UserDto;
+import com.mysite.nexfilx.User.dto.UserProfileDto;
+import com.mysite.nexfilx.User.service.ProfileNameService;
 import com.mysite.nexfilx.User.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -16,6 +24,8 @@ import java.util.Optional;
 public class UserController {
 
     private final UserService userService;
+
+    private final ProfileNameService profileNameService;
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -57,6 +67,43 @@ public class UserController {
     public Optional<User> getLastPaymentDate(@RequestBody UserDto userDto) {
         Optional<User> findDate =  userService.getLastDate(userDto);
         return findDate;
+    }
+
+
+    @PostMapping("/profile")
+    public void setUserName(@RequestBody ProfileName profileName, @RequestParam("userId") String userId){
+
+        System.out.println(userId);
+
+        User user = userService.findId(userId);
+
+        profileNameService.setProfileName(user, profileName);
+
+    }
+
+
+
+
+
+//    @GetMapping("/getProfile")
+//    public User getUserName(@RequestParam String useremail){
+//        System.out.print("아이디" + useremail);
+//
+//        return userService.getProfile(useremail);
+//
+//    }
+
+//    @GetMapping("/getProfile")
+//    public List<ProfileName> getNetflixContents() {
+//        return profileNameService.getProfile();
+//    }
+
+    @GetMapping("/getProfile")
+    public UserProfileDto getNetflixContents(@RequestParam("useremail") String userId) {
+
+        User user = userService.findId(userId);
+
+        return profileNameService.getProfile(user);
     }
 
 
