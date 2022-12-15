@@ -21,11 +21,11 @@ public class ProfileNameService {
     private final ProfileRepository profileRepository;
     private final ImgRepository imgRepository;
 
-    public void setProfileName(User user , ProfileName profileName, ProfileImg profileImg) {
+    public void setProfileName(User user , ProfileNameDto profileNameDto, ProfileImg profileImg) {
 
         ProfileName profileName2 = ProfileName.builder()
                 .user(user)
-                .nickname(profileName.getNickname())
+                .nickname(profileNameDto.getNickname())
                 .img(profileImg.getImageUrl())
                 .build();
 
@@ -90,6 +90,18 @@ public class ProfileNameService {
 
             profileRepository.save(profileName);
         }
+    }
+
+    public void setNickName(User user,String useremail, ProfileImg profileImg) {
+
+
+        ProfileName profileName = new ProfileName(ProfileName.builder()
+                .user(user)
+                .nickname(useremail)
+                .img(profileImg.getImageUrl())
+                .build());
+
+        profileRepository.save(profileName);
     }
 
 //    public void findByImg(Long id) {
