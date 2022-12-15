@@ -3,8 +3,10 @@ package com.mysite.nexfilx.User.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +31,8 @@ public class User {
 
     @Column(columnDefinition = "tinyint(1)", nullable = false)
     private Boolean auth;
+
+
 
     @Column
     private Date lastPaymentDate;
