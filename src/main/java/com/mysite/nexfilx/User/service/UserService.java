@@ -9,12 +9,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+//@Transactional(readOnly = true) //토큰용, 일단사용X
 public class UserService {
 
     private final UserRepository userRepository;
@@ -37,6 +39,7 @@ public class UserService {
     }
 
     public User login(User user) {
+
         Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
         if(opUser.isPresent()) {
             User loginedUser = opUser.get();
@@ -48,6 +51,20 @@ public class UserService {
         }
         return null;
     }
+
+
+//    public User login(User user) {
+//        Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
+//        if(opUser.isPresent()) {
+//            User loginedUser = opUser.get();
+//
+//            if(passwordEncoder.matches(user.getPassword(), loginedUser.getPassword())){
+//                return loginedUser;
+//            }
+//            return null;
+//        }
+//        return null;
+//    }
 
     public User setOrder(Payorder payorder) {
         Optional<User> opUser = userRepository.findByUseremail(payorder.getUseremail());
