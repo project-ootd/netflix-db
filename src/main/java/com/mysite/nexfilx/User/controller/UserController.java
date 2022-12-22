@@ -2,6 +2,7 @@ package com.mysite.nexfilx.User.controller;
 
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
 import com.mysite.nexfilx.Contents.dto.NetflixDto;
+import com.mysite.nexfilx.User.dao.UserRepository;
 import com.mysite.nexfilx.User.domain.ProfileImg;
 import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
@@ -22,11 +23,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
+
+    private final UserRepository userRepository;
 
     private final ProfileNameService profileNameService;
 
@@ -41,18 +44,31 @@ public class UserController {
     public String setUser(@RequestBody User user) {
 
 
-        userService.join(user);
+//        userService.join(user);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setRoles("ROLE_USER");
+        userRepository.save(user);
 
 
         return "회원가입 완료";
     }
 
-    @PostMapping("login")
-    public User login(@RequestBody User user) {
-        User loginedUser =  userService.login(user);
-
-        return loginedUser;
+//    @PostMapping("login")
+//    public User login(@RequestBody User user) {
+//        User loginedUser =  userService.login(user);
+//
+//        return loginedUser;
+//    }
+    @GetMapping("/user")
+    public String user() {
+        return "user";
     }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
+
 
 //    @PostMapping("/login")
 //    public String login() {

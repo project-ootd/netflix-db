@@ -8,6 +8,7 @@ import com.mysite.nexfilx.order.domain.Payorder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
@@ -22,21 +23,21 @@ public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public User join(User user) {
-
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
-//        String format = formatter.format(LocalDate.now());
-//        Date date = java.sql.Timestamp.valueOf(LocalDateTime.now());
+//    public User join(User user) {
 //
-//        user.setLastPaymentDate(date);
-        user.setAuth(false);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-
-        userRepository.save(user);
-        return user;
-
-    }
+////        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
+////        String format = formatter.format(LocalDate.now());
+////        Date date = java.sql.Timestamp.valueOf(LocalDateTime.now());
+////
+////        user.setLastPaymentDate(date);
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        user.setAuth(false);
+//        user.setRoles("ROLE_USER");
+//        userRepository.save(user);
+//
+//        return user;
+//
+//    }
 
     public User login(User user) {
 

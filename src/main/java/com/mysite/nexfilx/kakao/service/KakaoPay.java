@@ -29,7 +29,6 @@ public class KakaoPay {
 
 
     public String payReady(UserDto userDto) {
-
         LocalDate currentDate = LocalDate.now();
 
 
@@ -41,6 +40,7 @@ public class KakaoPay {
         headers.add("Content-Type", org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+        System.out.println("체크체크체크체크체크 : " + userDto);
         params.add("cid", "TC0ONETIME"); // 가맹정 코드 (test는 카카오에서 제공하는 샘플 코드 사용)
         params.add("partner_order_id", userDto.getNowdate()+"test"); // 주문 번호
         params.add("partner_user_id", userDto.getUseremail()); // 주문자 아이디
