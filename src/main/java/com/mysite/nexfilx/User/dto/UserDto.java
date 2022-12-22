@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,12 +24,12 @@ public class UserDto {
 
     private Long id;
     private String password;
-    private Boolean auth;
     private String useremail;
 
     private Date nowdate;
 
     private Date lastPaymentDate;
+
 
 
     private List<ProfileNameDto> profileNameListDto;

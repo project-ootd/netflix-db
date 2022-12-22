@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -25,16 +26,14 @@ public class User {
     @Column(unique = true)
     private Long id;
 
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String useremail;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(columnDefinition = "tinyint(1)", nullable = false)
-    private Boolean auth;
 
-
+    private String roles;
 
     @Column
     private Date lastPaymentDate;
@@ -50,15 +49,22 @@ public class User {
     public User(User user) {
         id = user.getId();
         password = user.getPassword();
-        auth = user.getAuth();
         lastPaymentDate = user.getLastPaymentDate();
         useremail = user.getUseremail();
+        roles = user.getRoles();
         profileNameList = new ArrayList<>();
         user.getProfileNameList().stream()
                 .forEach(profileName -> {
                     ProfileName profileName1 = new ProfileName(profileName);
                     profileNameList.add(profileName1);
                 });
+    }
+
+    public List<String> getRoleList() {
+        if (this.roles.length() > 0) {
+            return Arrays.asList(this.roles.split(","));
+        }
+        return new ArrayList<>();
     }
 
 
