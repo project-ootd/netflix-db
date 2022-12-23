@@ -22,45 +22,12 @@ import java.util.List;
 @Builder
 public class UserDto {
 
-    private Long id;
-    private String password;
     private String useremail;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date nowdate;
 
     private Date lastPaymentDate;
-
-
-
-    private List<ProfileNameDto> profileNameListDto;
-
-
-//    public UserDto(User user) {
-//        id = user.getId();
-//        password = user.getPassword();
-//        auth = user.getAuth();
-//        lastPaymentDate = user.getLastPaymentDate();
-//        useremail = user.getUseremail();
-//        profileNameListDto = new ArrayList<>();
-//        user.getProfileNameList().stream()
-//                .forEach(profileName -> {
-//                    ProfileNameDto profileNameDto = new ProfileNameDto(profileName);
-//                    profileNameListDto.add(profileNameDto);
-//                });
-//    }
-
-//
-////        userName = user.getUseremail();
-//
-////        userName = new ArrayList<>();
-////        user.getUserName().stream()
-////                .forEach(profileName -> {
-////                    ProfileNameDto profileNameDto = new ProfileNameDto(profileName);
-////                    userName.add(profileNameDto);
-////                });
-//
-//
-//    }
 
 
 }
