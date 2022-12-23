@@ -84,6 +84,7 @@ public class UserController {
 
     @PostMapping("/getLastPayDate")
     public Optional<User> getLastPaymentDate(@RequestBody UserDto userDto) {
+        System.out.println("UserController UserDto : " + userDto);
         Optional<User> findDate =  userService.getLastDate(userDto);
         return findDate;
     }
