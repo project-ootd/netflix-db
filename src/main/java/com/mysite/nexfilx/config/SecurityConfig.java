@@ -48,6 +48,9 @@ public class SecurityConfig {
                 .authorizeRequests( authorize -> authorize
                                 .antMatchers(HttpMethod.POST,"/api/v1/getLastPayDate")
                                 .hasAnyRole("USER", "ADMIN")
+                                .antMatchers(HttpMethod.GET,"/api/v1/getProfile")
+                                .hasAnyRole("USER","ADMIN")
+
 //                       .antMatchers("/api/v1/user/**")
 ////                         .hasRole("ROLSE_USER")
 //                       .hasAnyRole("USER", "ADMIN")
