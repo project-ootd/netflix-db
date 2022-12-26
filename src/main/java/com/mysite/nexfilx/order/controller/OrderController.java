@@ -27,18 +27,19 @@ public class OrderController {
         System.out.println("payorder : " + payorder);
         System.out.println("payorder date : " + payorder.getOrderDate());
         System.out.println("payorder id : " + payorder.getOrderId());
-        System.out.println("payorder email : " + payorder.getUseremail());
         System.out.println("payorder num : " + payorder.getOrderNum());
 
         orderService.setOrder(payorder);
         userService.setOrder(payorder);
         return "payorder";
 
+
     }
 
     @PostMapping("getorder")
     public List<Payorder> getOrder(@RequestBody Payorder payorder, Model model) {
         List<Payorder> findorder = orderService.orderEmail(payorder);
+        System.out.println("payorder email : " + payorder.getUseremail());
         model.addAttribute("order", findorder);
         return findorder;
     }

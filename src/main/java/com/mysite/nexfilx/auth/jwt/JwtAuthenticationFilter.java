@@ -79,9 +79,9 @@ public class JwtAuthenticationFilter  extends UsernamePasswordAuthenticationFilt
         System.out.println(authResult.getName());
         User user = userRepository.findByUseremail(authResult.getName()).orElseThrow();
 
-//
 
-//        //토큰만들기
+
+        //토큰만들기
         String jwtToken = JWT.create()
                 .withSubject("login token")
                 .withExpiresAt(new Date(System.currentTimeMillis()+JwtProperties.EXPIRATION_TIME))

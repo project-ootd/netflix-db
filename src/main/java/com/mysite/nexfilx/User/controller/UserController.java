@@ -106,6 +106,7 @@ public class UserController {
 
         User user = userService.findId(userId);
 
+        System.out.println("getprofile > user test : " + user);
         return profileNameService.getProfile(user);
     }
 
