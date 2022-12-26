@@ -79,14 +79,16 @@ public class UserService {
 //                orderUser.setAuth(Boolean.valueOf("0"));
 //            }
 
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");   // yyyy-MM-dd HH:mm:ss
-            System.out.printf(formatter.format("Date : "+payorder.getOrderDate()));
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
+
 //            Date nowDate = formatter.format(payorder.getOrderDate());
 
             orderUser.setLastPaymentDate(payorder.getOrderDate());
             userRepository.save(orderUser);
+            return orderUser;
+        } else {
+            return null;
         }
-        return null;
     }
 
     public Optional<User> getLastDate(UserDto userDto) {
