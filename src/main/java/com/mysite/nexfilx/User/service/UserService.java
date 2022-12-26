@@ -23,35 +23,34 @@ public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-//    public User join(User user) {
-//
-////        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
-////        String format = formatter.format(LocalDate.now());
-////        Date date = java.sql.Timestamp.valueOf(LocalDateTime.now());
-////
-////        user.setLastPaymentDate(date);
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        user.setAuth(false);
-//        user.setRoles("ROLE_USER");
-//        userRepository.save(user);
-//
-//        return user;
-//
-//    }
+    public User join(User user) {
 
-    public User login(User user) {
+//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
+//        String format = formatter.format(LocalDate.now());
+//        Date date = java.sql.Timestamp.valueOf(LocalDateTime.now());
+//
+//        user.setLastPaymentDate(date);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles("ROLE_USER");
+        userRepository.save(user);
 
-        Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
-        if(opUser.isPresent()) {
-            User loginedUser = opUser.get();
+        return user;
 
-            if(passwordEncoder.matches(user.getPassword(), loginedUser.getPassword())){
-                return loginedUser;
-            }
-            return null;
-        }
-        return null;
     }
+
+//    public User login(User user) {
+//
+//        Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
+//        if(opUser.isPresent()) {
+//            User loginedUser = opUser.get();
+//
+//            if(passwordEncoder.matches(user.getPassword(), loginedUser.getPassword())){
+//                return loginedUser;
+//            }
+//            return null;
+//        }
+//        return null;
+//    }
 
 
 //    public User login(User user) {

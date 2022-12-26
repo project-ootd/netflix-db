@@ -44,10 +44,9 @@ public class UserController {
     public String setUser(@RequestBody User user) {
 
 
-//        userService.join(user);
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles("ROLE_USER");
-        userRepository.save(user);
+        userService.join(user);
+        ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
+        profileNameService.setNickName(user, user.getUseremail(), profileImg);
 
 
         return "회원가입 완료";
@@ -102,8 +101,8 @@ public class UserController {
 
 
     @GetMapping("/getProfile")
-    public UserProfileDto getNetflixContents(@RequestParam("useremail") String userId) {
-
+    public UserProfileDto getNetflixContents(@RequestParam(value = "useremail", required = false) String userId) {
+        System.out.println("user Id : " + userId);
         User user = userService.findId(userId);
 
         System.out.println("getprofile > user test : " + user);
