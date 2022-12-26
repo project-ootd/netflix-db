@@ -63,12 +63,13 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
         }
         if (username != null) {
             Optional<User> user = userRepository.findByUseremail(username);
+            System.out.println("User: " + user);
             PrincipalDetails principalDetails = new PrincipalDetails(user.get());
             Authentication authentication =
                     new UsernamePasswordAuthenticationToken(principalDetails, null, principalDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
             System.out.println("principalDetails : " + principalDetails);
-            chain.doFilter(request, response);
+//            chain.doFilter(request, response);
         }
 
         super.doFilterInternal(request, response, chain);

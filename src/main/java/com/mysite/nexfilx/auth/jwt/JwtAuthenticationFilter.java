@@ -31,7 +31,6 @@ public class JwtAuthenticationFilter  extends UsernamePasswordAuthenticationFilt
     private AuthenticationManager authenticationManager;
 
     public JwtAuthenticationFilter(AuthenticationManager authenticationManager, UserRepository userRepository) {
-        System.out.println("123123123124813581714824912412---------------");
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
 
