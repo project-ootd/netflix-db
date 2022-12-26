@@ -6,6 +6,7 @@ import com.mysite.nexfilx.auth.jwt.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -45,11 +46,13 @@ public class SecurityConfig {
                 .apply(new CustomDsl())
                 .and()
                 .authorizeRequests( authorize -> authorize
-                       .antMatchers("/api/v1/user/**")
-//                         .hasRole("ROLSE_USER")
-                       .hasAnyRole("USER", "ADMIN")
-                       .antMatchers("/api/v1/admin/**")
-                       .hasRole("ADMIN")
+                                .antMatchers(HttpMethod.POST,"/api/v1/getLastPayDate")
+                                .hasAnyRole("USER", "ADMIN")
+//                       .antMatchers("/api/v1/user/**")
+////                         .hasRole("ROLSE_USER")
+//                       .hasAnyRole("USER", "ADMIN")
+//                       .antMatchers("/api/v1/admin/**")
+//                       .hasRole("ADMIN")
                        .anyRequest()
                        .permitAll()
 //                .and()
