@@ -9,6 +9,7 @@ import com.mysite.nexfilx.order.domain.Payorder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
@@ -29,29 +30,58 @@ public class UserService {
 
     public User join(User user) {
 
+<<<<<<< HEAD
 
+=======
+//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
+//        String format = formatter.format(LocalDate.now());
+//        Date date = java.sql.Timestamp.valueOf(LocalDateTime.now());
+//
+//        user.setLastPaymentDate(date);
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-
+        user.setRoles("ROLE_USER");
         userRepository.save(user);
 
         return user;
 
     }
 
+<<<<<<< HEAD
     public User login(User user) {
 
         Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
         if(opUser.isPresent()) {
             User loginedUser = opUser.get();
+=======
+//    public User login(User user) {
+//
+//        Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
+//        if(opUser.isPresent()) {
+//            User loginedUser = opUser.get();
+//
+//            if(passwordEncoder.matches(user.getPassword(), loginedUser.getPassword())){
+//                return loginedUser;
+//            }
+//            return null;
+//        }
+//        return null;
+//    }
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
-            if(passwordEncoder.matches(user.getPassword(), loginedUser.getPassword())){
-                return loginedUser;
-            }
-            return null;
-        }
-        return null;
-    }
+
+//    public User login(User user) {
+//        Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
+//        if(opUser.isPresent()) {
+//            User loginedUser = opUser.get();
+//
+//            if(passwordEncoder.matches(user.getPassword(), loginedUser.getPassword())){
+//                return loginedUser;
+//            }
+//            return null;
+//        }
+//        return null;
+//    }
 
 
 //    public User login(User user) {
@@ -72,10 +102,28 @@ public class UserService {
         if(opUser.isPresent()) {
             User orderUser = opUser.get();
 
+<<<<<<< HEAD
+=======
+
+//            if (orderUser.getAuth().equals("0")) {
+//                orderUser.setAuth(Boolean.valueOf("1"));
+//            }
+//            else {
+//                orderUser.setAuth(Boolean.valueOf("0"));
+//            }
+
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
+
+//            Date nowDate = formatter.format(payorder.getOrderDate());
+
+
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
             orderUser.setLastPaymentDate(payorder.getOrderDate());
             userRepository.save(orderUser);
+            return orderUser;
+        } else {
+            return null;
         }
-        return null;
     }
 
     public Optional<User> getLastDate(UserDto userDto) {

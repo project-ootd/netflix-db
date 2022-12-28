@@ -18,7 +18,13 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
 
+<<<<<<< HEAD
     int num = 1;
+=======
+
+    int num = 3;
+
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
 
     LocalDate currentDate = LocalDate.now();
@@ -40,9 +46,13 @@ public class OrderService {
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");   // yyyy-MM-dd HH:mm:ss
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
+=======
+
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 //        System.out.printf("Date" + formatter.format(nowDate));
 
         String format = formatter.format(nowDate)+"-000-" + num;

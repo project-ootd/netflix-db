@@ -2,6 +2,7 @@ package com.mysite.nexfilx.User.controller;
 
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
 import com.mysite.nexfilx.Contents.dto.NetflixDto;
+import com.mysite.nexfilx.User.dao.UserRepository;
 import com.mysite.nexfilx.User.domain.ProfileImg;
 import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
@@ -23,11 +24,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
+
+    private final UserRepository userRepository;
 
     private final ProfileNameService profileNameService;
 
@@ -43,6 +46,8 @@ public class UserController {
 
 
         userService.join(user);
+        ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
+        profileNameService.setNickName(user, user.getUseremail(), profileImg);
 
 //        User user1 = userService.findId(user.getUseremail());
         ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
@@ -55,12 +60,22 @@ public class UserController {
         return "회원가입 완료";
     }
 
-    @PostMapping("login")
-    public User login(@RequestBody User user) {
-        User loginedUser =  userService.login(user);
-
-        return loginedUser;
+//    @PostMapping("login")
+//    public User login(@RequestBody User user) {
+//        User loginedUser =  userService.login(user);
+//
+//        return loginedUser;
+//    }
+    @GetMapping("/user")
+    public String user() {
+        return "user";
     }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
+
 
 //    @PostMapping("/login")
 //    public String login() {
@@ -76,6 +91,7 @@ public class UserController {
 
     @PostMapping("/getLastPayDate")
     public Optional<User> getLastPaymentDate(@RequestBody UserDto userDto) {
+        System.out.println("UserController UserDto : " + userDto);
         Optional<User> findDate =  userService.getLastDate(userDto);
         return findDate;
     }
@@ -96,10 +112,11 @@ public class UserController {
 
 
     @GetMapping("/getProfile")
-    public UserProfileDto getNetflixContents(@RequestParam("useremail") String userId) {
-
+    public UserProfileDto getNetflixContents(@RequestParam(value = "useremail", required = false) String userId) {
+        System.out.println("user Id : " + userId);
         User user = userService.findId(userId);
 
+        System.out.println("getprofile > user test : " + user);
         return profileNameService.getProfile(user);
     }
 
