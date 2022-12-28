@@ -1,6 +1,7 @@
 package com.mysite.nexfilx.User.service;
 
 import com.mysite.nexfilx.User.dao.UserRepository;
+import com.mysite.nexfilx.User.domain.ProfileImg;
 import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
 import com.mysite.nexfilx.User.dto.UserDto;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,6 +74,7 @@ public class UserService {
         if(opUser.isPresent()) {
             User orderUser = opUser.get();
 
+
 //            if (orderUser.getAuth().equals("0")) {
 //                orderUser.setAuth(Boolean.valueOf("1"));
 //            }
@@ -81,6 +85,7 @@ public class UserService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
 
 //            Date nowDate = formatter.format(payorder.getOrderDate());
+
 
             orderUser.setLastPaymentDate(payorder.getOrderDate());
             userRepository.save(orderUser);

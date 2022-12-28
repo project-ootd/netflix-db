@@ -48,6 +48,12 @@ public class UserController {
         ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
         profileNameService.setNickName(user, user.getUseremail(), profileImg);
 
+//        User user1 = userService.findId(user.getUseremail());
+        ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
+
+        profileNameService.setNickName(user, user.getUseremail(), profileImg);
+
+//        profileNameService.setProfileName(user, profileNameDto , profileImg);
 
         return "회원가입 완료";
     }
@@ -90,12 +96,14 @@ public class UserController {
 
 
     @PostMapping("/profile")
-    public void setUserName(@RequestBody ProfileName profileName, @RequestParam("useremail") String userId){
+    public void setUserName(@RequestBody ProfileNameDto profileNameDto, @RequestParam("useremail") String userId){
 
         User user = userService.findId(userId);
-        ProfileImg profileImg = profileNameService.findById(profileName.getImg());
+        ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
 
-        profileNameService.setProfileName(user, profileName, profileImg);
+        System.out.println("profileName" + profileNameDto.getNickname());
+
+        profileNameService.setProfileName(user, profileNameDto, profileImg);
 
     }
 
