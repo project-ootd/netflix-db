@@ -33,6 +33,16 @@ public class ProfileNameService {
 
     }
 
+    public void setNickName(User user, String useremail, ProfileImg profileImg) {
+        ProfileName profileName = new ProfileName(ProfileName.builder()
+                .user(user)
+                .nickname(useremail)
+                .img(profileImg.getImageUrl())
+                .build());
+        profileRepository.save(profileName);
+
+    }
+
 
 
     public UserProfileDto getProfile(User user) {

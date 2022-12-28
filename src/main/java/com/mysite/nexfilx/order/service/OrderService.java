@@ -18,7 +18,9 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
 
-    int num = 1;
+
+    int num = 3;
+
 
     LocalDate currentDate = LocalDate.now();
 //    LocalDate myDate = LocalDate.of();
