@@ -29,10 +29,7 @@ public class ContentController {
 
     public List<NetflixDto> getKeywords(@RequestParam("q") String q) {
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
         return contentService.getNetflixContentsBySearch(q);
     }
 

@@ -59,9 +59,12 @@ public class UserController {
 
 //        profileNameService.setProfileName(user, profileNameDto , profileImg);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+>>>>>>> master
 
         return "회원가입 완료";
     }

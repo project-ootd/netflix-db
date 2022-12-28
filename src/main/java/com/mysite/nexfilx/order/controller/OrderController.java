@@ -27,18 +27,24 @@ public class OrderController {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
         System.out.println("orderDate : " + payorder.getOrderDate());
 =======
 
         System.out.println("orderDate : " + payorder.getOrderDate());
 
 >>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+>>>>>>> master
         orderService.setOrder(payorder);
         userService.setOrder(payorder);
         return "payorder";

@@ -22,17 +22,21 @@ import java.util.List;
 public class UserDto {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+>>>>>>> master
     private String useremail;
     private String  nowdate;
     private String lastPaymentDate;
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -48,5 +52,7 @@ public class UserDto {
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+>>>>>>> master
 
 }

@@ -41,6 +41,7 @@ public class SecurityConfig {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS) //세션을 사용하지 않음.
                 .and()
+<<<<<<< HEAD
                 .formLogin().disable()
                 .httpBasic().disable()
                 .apply(new CustomDsl())
@@ -84,6 +85,13 @@ public class SecurityConfig {
 //                        .permitAll()
                 )
         .build();
+=======
+                .authorizeRequests(authorize -> authorize
+                        .anyRequest()
+                        .permitAll()
+                );
+        return http.build();
+>>>>>>> master
     }
 
     public class CustomDsl extends AbstractHttpConfigurer<CustomDsl, HttpSecurity> {

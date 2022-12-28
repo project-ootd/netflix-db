@@ -27,6 +27,7 @@ public class UserService {
     private final BCryptPasswordEncoder passwordEncoder;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private final ProfileNameService profileNameService;
 
 =======
@@ -45,6 +46,13 @@ public class UserService {
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+    private final ProfileNameService profileNameService;
+
+    public User join(User user) {
+
+
+>>>>>>> master
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles("ROLE_USER");
         userRepository.save(user);
@@ -112,11 +120,26 @@ public class UserService {
 =======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
+
+//    public User login(User user) {
+//        Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
+//        if(opUser.isPresent()) {
+//            User loginedUser = opUser.get();
+//
+//            if(passwordEncoder.matches(user.getPassword(), loginedUser.getPassword())){
+//                return loginedUser;
+//            }
+//            return null;
+//        }
+//        return null;
+//    }
+
     public User setOrder(Payorder payorder) {
         Optional<User> opUser = userRepository.findByUseremail(payorder.getUseremail());
         if(opUser.isPresent()) {
             User orderUser = opUser.get();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -139,6 +162,8 @@ public class UserService {
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+>>>>>>> master
             orderUser.setLastPaymentDate(payorder.getOrderDate());
             userRepository.save(orderUser);
             return orderUser;

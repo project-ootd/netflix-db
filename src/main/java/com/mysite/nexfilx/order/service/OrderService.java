@@ -20,6 +20,7 @@ public class OrderService {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     int num = 1;
 =======
 
@@ -32,6 +33,9 @@ public class OrderService {
     int num = 3;
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+    int num = 1;
+>>>>>>> master
 
     LocalDate currentDate = LocalDate.now();
 //    LocalDate myDate = LocalDate.of();
@@ -54,6 +58,7 @@ public class OrderService {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
@@ -63,6 +68,11 @@ public class OrderService {
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+=======
+
+>>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
+>>>>>>> master
 //        System.out.printf("Date" + formatter.format(nowDate));
 
         String format = formatter.format(nowDate)+"-000-" + num;

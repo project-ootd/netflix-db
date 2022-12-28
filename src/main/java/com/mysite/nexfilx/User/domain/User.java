@@ -9,6 +9,7 @@ import javax.persistence.*;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
@@ -18,6 +19,11 @@ import javax.persistence.*;
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+=======
+
+>>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
+>>>>>>> master
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -44,6 +50,7 @@ public class User {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     private String roles;
@@ -51,6 +58,9 @@ public class User {
 =======
     private String roles;
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+
+>>>>>>> master
 
     @Column
     private Date lastPaymentDate;
