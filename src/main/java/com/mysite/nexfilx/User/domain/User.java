@@ -2,13 +2,11 @@ package com.mysite.nexfilx.User.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mysite.nexfilx.User.dto.ProfileNameDto;
 import lombok.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;

@@ -23,10 +23,12 @@ public class UserDto {
 
     private String useremail;
 
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date nowdate;
 
     private Date lastPaymentDate;
+
 
 
 }
