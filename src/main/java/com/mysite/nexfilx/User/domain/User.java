@@ -8,9 +8,13 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import javax.persistence.*;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
+=======
+
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
@@ -39,7 +43,11 @@ public class User {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+    private String roles;
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
     private String roles;
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab

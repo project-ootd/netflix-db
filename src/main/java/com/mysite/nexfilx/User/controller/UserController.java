@@ -7,7 +7,10 @@ import com.mysite.nexfilx.User.domain.ProfileImg;
 import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
 import com.mysite.nexfilx.User.dto.ProfileImgDto;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 import com.mysite.nexfilx.User.dto.ProfileNameDto;
 import com.mysite.nexfilx.User.dto.UserDto;
 import com.mysite.nexfilx.User.dto.UserProfileDto;
@@ -55,7 +58,10 @@ public class UserController {
         profileNameService.setNickName(user, user.getUseremail(), profileImg);
 
 //        profileNameService.setProfileName(user, profileNameDto , profileImg);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
         return "회원가입 완료";
     }
@@ -110,7 +116,10 @@ public class UserController {
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
     @GetMapping("/getProfile")
     public UserProfileDto getNetflixContents(@RequestParam(value = "useremail", required = false) String userId) {
         System.out.println("user Id : " + userId);

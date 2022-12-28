@@ -26,8 +26,11 @@ public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
+<<<<<<< HEAD
     private final ProfileNameService profileNameService;
 
+=======
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
     public User join(User user) {
 
 <<<<<<< HEAD
@@ -38,6 +41,9 @@ public class UserService {
 //        Date date = java.sql.Timestamp.valueOf(LocalDateTime.now());
 //
 //        user.setLastPaymentDate(date);
+<<<<<<< HEAD
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles("ROLE_USER");
@@ -48,12 +54,15 @@ public class UserService {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public User login(User user) {
 
         Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
         if(opUser.isPresent()) {
             User loginedUser = opUser.get();
 =======
+=======
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 //    public User login(User user) {
 //
 //        Optional<User> opUser = userRepository.findByUseremail(user.getUseremail());
@@ -67,6 +76,9 @@ public class UserService {
 //        }
 //        return null;
 //    }
+<<<<<<< HEAD
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
 
@@ -82,6 +94,7 @@ public class UserService {
 //        }
 //        return null;
 //    }
+<<<<<<< HEAD
 
 
 //    public User login(User user) {
@@ -96,6 +109,8 @@ public class UserService {
 //        }
 //        return null;
 //    }
+=======
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
     public User setOrder(Payorder payorder) {
         Optional<User> opUser = userRepository.findByUseremail(payorder.getUseremail());
@@ -103,7 +118,10 @@ public class UserService {
             User orderUser = opUser.get();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
 //            if (orderUser.getAuth().equals("0")) {
 //                orderUser.setAuth(Boolean.valueOf("1"));
@@ -117,6 +135,9 @@ public class UserService {
 //            Date nowDate = formatter.format(payorder.getOrderDate());
 
 
+<<<<<<< HEAD
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
             orderUser.setLastPaymentDate(payorder.getOrderDate());
             userRepository.save(orderUser);

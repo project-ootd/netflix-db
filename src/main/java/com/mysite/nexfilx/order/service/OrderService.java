@@ -19,6 +19,7 @@ public class OrderService {
     private final UserRepository userRepository;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     int num = 1;
 =======
 
@@ -26,6 +27,11 @@ public class OrderService {
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
+=======
+
+    int num = 3;
+
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
     LocalDate currentDate = LocalDate.now();
 //    LocalDate myDate = LocalDate.of();
@@ -47,9 +53,13 @@ public class OrderService {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");   // yyyy-MM-dd HH:mm:ss
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
+=======
+
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab

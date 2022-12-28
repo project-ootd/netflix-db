@@ -21,6 +21,10 @@ import java.util.List;
 @Setter
 public class UserDto {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
@@ -30,13 +34,19 @@ public class UserDto {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date nowdate;
 
     private Date lastPaymentDate;
 
 
+<<<<<<< HEAD
+>>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 
 }
