@@ -29,3 +29,6 @@ logging:
         type:
           descriptor:
             sql: trace
+handlebars:
+  suffix: .html
+  expose-session-attributes: true
