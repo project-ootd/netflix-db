@@ -1,7 +1,10 @@
 package com.mysite.nexfilx.Contents.dto;
 
+import com.mysite.nexfilx.Contents.domain.NetflixContentDetails;
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
+import com.mysite.nexfilx.Contents.domain.QNetflixContents;
 import com.mysite.nexfilx.likelist.dto.LikeListDto;
+import com.querydsl.core.annotations.QueryProjection;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-public class NetflixDto {
+public class NetflixDto  {
 
 
     private Long id;
@@ -24,7 +26,7 @@ public class NetflixDto {
 
     private String contentNum;
 
-    private List<NetflixDetailDto> detailDtos;
+    private List<NetflixDetailDto> details;
 
     private String contentId;
     private String contentName;
@@ -56,11 +58,11 @@ public class NetflixDto {
         contentNum = netflixContents.getContentNum();
         contentName = netflixContents.getContentName();
         contentId = netflixContents.getContentId();
-        detailDtos = new ArrayList<>();
+        details = new ArrayList<>();
         netflixContents.getDetails().stream()
                 .forEach(detail -> {
                     NetflixDetailDto netflixDetailDto = new NetflixDetailDto(detail);
-                    detailDtos.add(netflixDetailDto);
+                    details.add(netflixDetailDto);
                 });
         episodes = netflixContents.getEpisodes();
         date = netflixContents.getDate();
@@ -74,12 +76,57 @@ public class NetflixDto {
         detailTextImg = netflixContents.getDetailTextImg();
         mainStory = netflixContents.getMainStory();
         videoLink = netflixContents.getVideoLink();
-<<<<<<< HEAD
-
-=======
->>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
         likeStatus=this.likeStatus;
     }
+
+    @QueryProjection
+    public NetflixDto(Long id, String contentNum, List<NetflixContentDetails> details, String contentId, String contentName, int episodes, String date, String actor, int age, String director, String contentImg, String rankingImg, String contentVideo, String detailImg, String detailTextImg, String mainStory, String videoLink) {
+        this.id = id;
+        this.contentNum = contentNum;
+        details.stream()
+                .forEach(detail -> {
+                    NetflixDetailDto netflixDetailDto = new NetflixDetailDto(detail);
+                    this.details.add(netflixDetailDto);
+                });
+        this.contentId = contentId;
+        this.contentName = contentName;
+        this.episodes = episodes;
+        this.date = date;
+        this.actor = actor;
+        this.age = age;
+        this.director = director;
+        this.contentImg = contentImg;
+        this.rankingImg = rankingImg;
+        this.contentVideo = contentVideo;
+        this.detailImg = detailImg;
+        this.detailTextImg = detailTextImg;
+        this.mainStory = mainStory;
+        this.videoLink = videoLink;
+    }
+
+//    @QueryProjection
+//    NetflixDto(
+//            Long id,
+//            String contentNum,
+//            List<NetflixDetailDto> details,
+//            String contentId,
+//            String contentName,
+//            Integer episodes,
+//            String date,
+//            String actor,
+//            Integer age,
+//            String director,
+//            String contentImg,
+//            String rankingImg,
+//            String contentVideo,
+//            String detailImg,
+//            String detailTextImg,
+//            String videoLink,
+//            String mainStory
+//    ) {
+//
+//    }
+
 
 
 

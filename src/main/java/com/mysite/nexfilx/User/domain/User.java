@@ -1,32 +1,8 @@
 package com.mysite.nexfilx.User.domain;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-
 import javax.persistence.*;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
-=======
-
->>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
-=======
-
->>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
-=======
-=======
-
->>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
->>>>>>> master
-=======
->>>>>>> master
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -50,39 +26,22 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(columnDefinition = "tinyint(1)", nullable = false)
+    private Boolean auth;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
     private String roles;
->>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
-=======
-    private String roles;
->>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
-=======
-
->>>>>>> master
-=======
-    private String roles;
->>>>>>> master
 
     @Column
     private Date lastPaymentDate;
-
-//    @OneToMany(mappedBy = "user")
+    //    @OneToMany(mappedBy = "user")
 //    private List<ProfileName> profileNameList;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ProfileName> profileNameList;
-
-
     public User(User user) {
         id = user.getId();
         password = user.getPassword();
+        auth = user.getAuth();
         lastPaymentDate = user.getLastPaymentDate();
         useremail = user.getUseremail();
         roles = user.getRoles();

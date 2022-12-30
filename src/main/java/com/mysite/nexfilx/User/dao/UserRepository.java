@@ -10,19 +10,6 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByUseremail(String useremail);
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
->>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
-=======
->>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
-=======
->>>>>>> master
-=======
->>>>>>> master
 //    Optional<User> findByLastPaymentDate(String useremail);
 }
