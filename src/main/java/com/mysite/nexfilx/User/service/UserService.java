@@ -21,12 +21,15 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+
     public User join(User user) {
 
-
-        user.setAuth(false);
+//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
+//        String format = formatter.format(LocalDate.now());
+//        Date date = java.sql.Timestamp.valueOf(LocalDateTime.now());
+//
+//        user.setLastPaymentDate(date);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
 
         user.setRoles("ROLE_USER");
         userRepository.save(user);
@@ -35,10 +38,24 @@ public class UserService {
 
     }
 
+
     public User setOrder(Payorder payorder) {
         Optional<User> opUser = userRepository.findByUseremail(payorder.getUseremail());
         if(opUser.isPresent()) {
             User orderUser = opUser.get();
+
+
+//            if (orderUser.getAuth().equals("0")) {
+//                orderUser.setAuth(Boolean.valueOf("1"));
+//            }
+//            else {
+//                orderUser.setAuth(Boolean.valueOf("0"));
+//            }
+
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
+
+//            Date nowDate = formatter.format(payorder.getOrderDate());
+
 
             orderUser.setLastPaymentDate(payorder.getOrderDate());
             userRepository.save(orderUser);

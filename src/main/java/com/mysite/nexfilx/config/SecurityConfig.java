@@ -41,6 +41,7 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS) //세션을 사용하지 않음.
                 .and()
                 .formLogin()
+
                 .and()
                 .httpBasic().disable()
                 .apply(new CustomDsl())

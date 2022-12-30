@@ -2,7 +2,9 @@ package com.mysite.nexfilx.User.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -26,8 +28,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(columnDefinition = "tinyint(1)", nullable = false)
-    private Boolean auth;
+
+    private String roles;
 
     private String roles;
 
@@ -41,7 +43,6 @@ public class User {
     public User(User user) {
         id = user.getId();
         password = user.getPassword();
-        auth = user.getAuth();
         lastPaymentDate = user.getLastPaymentDate();
         useremail = user.getUseremail();
         roles = user.getRoles();

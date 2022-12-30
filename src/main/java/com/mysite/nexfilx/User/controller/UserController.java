@@ -51,6 +51,7 @@ public class UserController {
 
 
 
+
 //        profileNameService.setProfileName(user, profileNameDto , profileImg);
 
 
@@ -105,7 +106,6 @@ public class UserController {
         profileNameService.setProfileName(user, profileNameDto, profileImg);
 
     }
-
 
 
     @GetMapping("/getProfile")
