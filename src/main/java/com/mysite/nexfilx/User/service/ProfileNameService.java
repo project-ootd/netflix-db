@@ -33,8 +33,6 @@ public class ProfileNameService {
 
     }
 
-
-
     public UserProfileDto getProfile(User user) {
 //        return profileRepository.findById(userId);
         UserProfileDto userProfileDto = new UserProfileDto(user);
