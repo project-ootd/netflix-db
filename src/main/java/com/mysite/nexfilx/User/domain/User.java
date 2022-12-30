@@ -1,6 +1,4 @@
 package com.mysite.nexfilx.User.domain;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -33,17 +31,15 @@ public class User {
 
     private String roles;
 
+    private String roles;
+
     @Column
     private Date lastPaymentDate;
-
-//    @OneToMany(mappedBy = "user")
+    //    @OneToMany(mappedBy = "user")
 //    private List<ProfileName> profileNameList;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ProfileName> profileNameList;
-
-
     public User(User user) {
         id = user.getId();
         password = user.getPassword();
