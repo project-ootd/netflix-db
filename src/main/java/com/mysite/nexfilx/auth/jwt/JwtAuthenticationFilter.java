@@ -48,7 +48,7 @@ public class JwtAuthenticationFilter  extends UsernamePasswordAuthenticationFilt
         // 2. 로그인 시도함
         // 3. authenticationManager가 로그인 시도를 하는데, 이 때 PrincipalDetailsService가 호출됨.
         // 4. loaduserByusername이 자동으로 실행됨
-
+        //
         try {
             ObjectMapper om = new ObjectMapper();
             User user = om.readValue(request.getInputStream(), User.class);
