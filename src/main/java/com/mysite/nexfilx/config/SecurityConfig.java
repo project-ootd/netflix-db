@@ -3,6 +3,7 @@ package com.mysite.nexfilx.config;
 import com.mysite.nexfilx.User.dao.UserRepository;
 import com.mysite.nexfilx.auth.jwt.JwtAuthenticationFilter;
 import com.mysite.nexfilx.auth.jwt.JwtAuthorizationFilter;
+import com.mysite.nexfilx.config.handler.LoginSuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,9 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -42,7 +41,12 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS) //세션을 사용하지 않음.
                 .and()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 .formLogin().disable()
+=======
+                .formLogin()
+                .and()
+>>>>>>> master
                 .httpBasic().disable()
                 .apply(new CustomDsl())
                 .and()
@@ -67,15 +71,9 @@ public class SecurityConfig {
                                 .hasAnyRole("USER", "ADMIN")
                                 .antMatchers(HttpMethod.POST, "/order")
                                 .hasAnyRole("USER", "ADMIN")
-
-
-//                       .antMatchers("/api/v1/user/**")
-////                         .hasRole("ROLSE_USER")
-//                       .hasAnyRole("USER", "ADMIN")
-//                       .antMatchers("/api/v1/admin/**")
-//                       .hasRole("ADMIN")
-                       .anyRequest()
-                       .permitAll()
+                                .anyRequest()
+                                .permitAll()
+                                .and()
 //                .and()
 //                .loginPage("/user/login")
 //                .defaultSuccessUrl("/")
@@ -85,12 +83,15 @@ public class SecurityConfig {
 //                        .permitAll()
                 )
         .build();
+<<<<<<< HEAD
 =======
                 .authorizeRequests(authorize -> authorize
                         .anyRequest()
                         .permitAll()
                 );
         return http.build();
+>>>>>>> master
+=======
 >>>>>>> master
     }
 

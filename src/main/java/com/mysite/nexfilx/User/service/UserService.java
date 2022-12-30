@@ -35,6 +35,7 @@ public class UserService {
     public User join(User user) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 //        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
@@ -53,6 +54,8 @@ public class UserService {
 
 
 >>>>>>> master
+=======
+>>>>>>> master
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles("ROLE_USER");
         userRepository.save(user);
@@ -61,6 +64,7 @@ public class UserService {
 
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public User login(User user) {
@@ -134,6 +138,8 @@ public class UserService {
 //        return null;
 //    }
 
+=======
+>>>>>>> master
     public User setOrder(Payorder payorder) {
         Optional<User> opUser = userRepository.findByUseremail(payorder.getUseremail());
         if(opUser.isPresent()) {
@@ -142,9 +148,12 @@ public class UserService {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+>>>>>>> master
 
 //            if (orderUser.getAuth().equals("0")) {
 //                orderUser.setAuth(Boolean.valueOf("1"));
@@ -159,9 +168,12 @@ public class UserService {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+>>>>>>> master
 =======
 >>>>>>> master
             orderUser.setLastPaymentDate(payorder.getOrderDate());

@@ -10,6 +10,7 @@ import javax.persistence.*;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
@@ -23,6 +24,8 @@ import javax.persistence.*;
 =======
 
 >>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
+>>>>>>> master
+=======
 >>>>>>> master
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,6 +54,7 @@ public class User {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     private String roles;
@@ -60,6 +64,9 @@ public class User {
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
 =======
 
+>>>>>>> master
+=======
+    private String roles;
 >>>>>>> master
 
     @Column

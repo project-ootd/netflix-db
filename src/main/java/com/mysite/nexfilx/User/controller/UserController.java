@@ -52,9 +52,6 @@ public class UserController {
         ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
         profileNameService.setNickName(user, user.getUseremail(), profileImg);
 
-//        User user1 = userService.findId(user.getUseremail());
-        ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
-
         profileNameService.setNickName(user, user.getUseremail(), profileImg);
 
 //        profileNameService.setProfileName(user, profileNameDto , profileImg);

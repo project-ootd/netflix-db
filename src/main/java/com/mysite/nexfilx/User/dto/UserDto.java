@@ -23,6 +23,7 @@ public class UserDto {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
@@ -42,11 +43,14 @@ public class UserDto {
 =======
 =======
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
+=======
+    private String useremail;
+>>>>>>> master
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date nowdate;
-
     private Date lastPaymentDate;
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 >>>>>>> 3829c5d0c0aa8e1ee313a05338bf0ced2bfdcdab
@@ -55,4 +59,6 @@ public class UserDto {
 =======
 >>>>>>> master
 
+=======
+>>>>>>> master
 }
