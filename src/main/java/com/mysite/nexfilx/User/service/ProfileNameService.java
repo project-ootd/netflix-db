@@ -73,6 +73,7 @@ public class ProfileNameService {
     }
 
     public ProfileImg findById(String imgId) {
+        System.out.println("imgId : "+ imgId);
         return imgRepository.findById(Long.valueOf(imgId)).orElseThrow();
 
     }
