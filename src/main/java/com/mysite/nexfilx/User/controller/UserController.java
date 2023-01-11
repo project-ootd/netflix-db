@@ -95,13 +95,13 @@ public class UserController {
     }
 
 
+
     @PostMapping("/profile")
     public void setUserName(@RequestBody ProfileNameDto profileNameDto, @RequestParam("useremail") String userId){
 
         User user = userService.findId(userId);
-        ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
 
-        System.out.println("profileName" + profileNameDto.getNickname());
+        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
 
         profileNameService.setProfileName(user, profileNameDto, profileImg);
 
@@ -110,10 +110,8 @@ public class UserController {
 
     @GetMapping("/getProfile")
     public UserProfileDto getNetflixContents(@RequestParam(value = "useremail", required = false) String userId) {
-        System.out.println("user Id : " + userId);
         User user = userService.findId(userId);
 
-        System.out.println("getprofile > user test : " + user);
         return profileNameService.getProfile(user);
     }
 
@@ -121,7 +119,9 @@ public class UserController {
     public void updateProfile(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
         User user = userService.findId(userId);
 
-        profileNameService.updateProfile(user, profileNameDto);
+        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
+
+        profileNameService.updateProfile(user, profileNameDto, profileImg);
     }
 
     @PostMapping("deleteprofile")
@@ -135,15 +135,18 @@ public class UserController {
         return profileNameService.getImgAll();
     }
 
-    @PostMapping("userSetProfileImg")
-    public void userSerProfileImg(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
-        User user = userService.findId(userId);
-        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
-
-//        System.out.println("Profile"+ profileNameDto);
-
-        profileNameService.setProfileImg(user, profileImg, profileNameDto);
-    }
+//    @PostMapping("userSetProfileImg")
+//    public void userSerProfileImg(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
+//        User testUser1 = new User();
+//        testUser1 = userService.findId((userId));
+////        User user = userService.findId(userId);
+////        testUser1 = user;
+//        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
+//
+////        System.out.println("Profile"+ profileNameDto);
+//
+//        profileNameService.setProfileImg(testUser1, profileImg, profileNameDto);
+//    }
 
 //    @PostMapping("findProfileImg")
 //    public void findProfileImg(@RequestBody ProfileImgDto profileImgDto) {

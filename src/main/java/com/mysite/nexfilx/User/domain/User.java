@@ -31,6 +31,7 @@ public class User {
 
     private String roles;
 
+
     @Column
     private Date lastPaymentDate;
     //    @OneToMany(mappedBy = "user")
