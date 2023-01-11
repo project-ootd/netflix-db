@@ -51,6 +51,9 @@ public class KakaoPay {
         params.add("approval_url", "http://beedue.site:3000/choiceprofile"); //결제 완료 시 이동 페이지
         params.add("cancel_url", "http://beedue.site:3000/payinfo"); // 결제 취소 시 이동 페이지
         params.add("fail_url", "http://beedue.site:3000/payinfo");
+//        params.add("approval_url", "http://sskyy.site:3000/choiceprofile"); //결제 완료 시 이동 페이지
+//        params.add("cancel_url", "http://sskyy.site:3000/payinfo"); // 결제 취소 시 이동 페이지
+//        params.add("fail_url", "http://sskyy.site:3000/payinfo");
 
         HttpEntity<MultiValueMap<String,String>> body = new HttpEntity<MultiValueMap<String , String>>(params, headers);
 
