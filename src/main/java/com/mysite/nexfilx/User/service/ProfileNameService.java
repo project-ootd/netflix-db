@@ -35,7 +35,10 @@ public class ProfileNameService {
     }
 
 
-//    유저 별 프로필 전체 조회
+
+
+
+    //    유저 별 프로필 전체 조회
     public UserProfileDto getProfile(User user) {
 //        return profileRepository.findById(userId);
         UserProfileDto userProfileDto = new UserProfileDto(user);
@@ -43,8 +46,11 @@ public class ProfileNameService {
     }
 
 
-//    프로필 수정
+    //    프로필 수정
     public void updateProfile(User user, ProfileNameDto profileNameDto, ProfileImg profileImg ) {
+//        profileRepository.delete(ProfileName.builder()
+//                        .id(profileName.getId())
+//                .build());
 
         Optional<ProfileName> optionalProfileName = profileRepository.findById(profileNameDto.getId());
 
@@ -61,7 +67,7 @@ public class ProfileNameService {
     }
 
 
-//    프로필 삭제
+    //    프로필 삭제
     public void deleteProfile(ProfileName profileName) {
         profileRepository.delete(ProfileName.builder()
                 .id(profileName.getId())
@@ -70,7 +76,7 @@ public class ProfileNameService {
 
 
 
-//   프로필 이미지 전체 조회
+    //   프로필 이미지 전체 조회
     public List<ProfileImg> getImgAll() {
         return imgRepository.findAll();
     }
@@ -81,7 +87,8 @@ public class ProfileNameService {
 
     }
 
-//    public void setProfileImg(User testUser1, ProfileImg profileImg, ProfileNameDto profileNameDto) {
+
+//    public void setProfileImg(User user, ProfileImg profileImg, ProfileNameDto profileNameDto) {
 //
 //        Optional<ProfileName> profileNameId = profileRepository.findById(profileNameDto.getId());
 //        if (profileNameId.isPresent()) {
@@ -89,7 +96,7 @@ public class ProfileNameService {
 //
 //            ProfileName profileName = ProfileName.builder()
 //                    .id(getprofileName.getId())
-//                    .user(testUser1)
+//                    .user(user)
 //                    .nickname(getprofileName.getNickname())
 //                    .img(profileImg.getImageUrl())
 //                    .build();
@@ -98,7 +105,8 @@ public class ProfileNameService {
 //        }
 //    }
 
-//    회원가입 시 첫 프로필 이름 아이디로 입력되게 함
+
+    //    회원가입 시 첫 프로필 이름 아이디로 입력되게 함
     public void setNickName(User user,String useremail, ProfileImg profileImg) {
 
 
