@@ -6,8 +6,11 @@ import com.mysite.nexfilx.Contents.domain.NetflixContents;
 
 import com.mysite.nexfilx.Contents.dto.NetflixDto;
 import com.mysite.nexfilx.Contents.service.ContentService;
+import com.mysite.nexfilx.User.dao.ProfileRepository;
 import com.mysite.nexfilx.User.dao.UserRepository;
+import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
+import com.mysite.nexfilx.User.service.ProfileNameService;
 import com.mysite.nexfilx.likelist.domain.LikeList;
 import com.mysite.nexfilx.likelist.dto.LikeListDto;
 import com.mysite.nexfilx.likelist.repository.LikeListRepository;
@@ -36,7 +39,8 @@ public class LikeListService {
     @Autowired
     private ContentService contentService;
 
-
+    @Autowired
+    private ProfileRepository profileRepository;
 
 
 
@@ -46,6 +50,7 @@ public class LikeListService {
     public boolean list(String useremail, Long contentsid){
         User user = userRepository.findByUseremail(useremail).orElseThrow(()-> new NullPointerException());
         NetflixContents netflixContents = contentRepository.findById(contentsid).orElseThrow(()-> new NullPointerException());
+
         //좋아요 체크 상태 함수
         boolean rs = checkLike(user,netflixContents);
         //그에 따른 if문으로 작성.

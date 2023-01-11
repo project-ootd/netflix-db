@@ -95,11 +95,14 @@ public class UserController {
     }
 
 
+
     @PostMapping("/profile")
     public void setUserName(@RequestBody ProfileNameDto profileNameDto, @RequestParam("useremail") String userId){
 
         User user = userService.findId(userId);
+
         ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
+
 
 
         profileNameService.setProfileName(user, profileNameDto, profileImg);
@@ -110,10 +113,8 @@ public class UserController {
 
     @GetMapping("/getProfile")
     public UserProfileDto getNetflixContents(@RequestParam(value = "useremail", required = false) String userId) {
-        System.out.println("user Id : " + userId);
         User user = userService.findId(userId);
 
-        System.out.println("getprofile > user test : " + user);
         return profileNameService.getProfile(user);
     }
 
@@ -145,6 +146,7 @@ public class UserController {
 ////        System.out.println("Profile"+ profileNameDto);
 //
 //        profileNameService.setProfileImg(user, profileImg, profileNameDto);
+
 //    }
 
 //    @PostMapping("findProfileImg")
