@@ -99,11 +99,11 @@ public class UserController {
     public void setUserName(@RequestBody ProfileNameDto profileNameDto, @RequestParam("useremail") String userId){
 
         User user = userService.findId(userId);
-        ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
+        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
 
-        System.out.println("profileName" + profileNameDto.getNickname());
 
         profileNameService.setProfileName(user, profileNameDto, profileImg);
+
 
     }
 
@@ -121,7 +121,9 @@ public class UserController {
     public void updateProfile(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
         User user = userService.findId(userId);
 
-        profileNameService.updateProfile(user, profileNameDto);
+        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
+
+        profileNameService.updateProfile(user, profileNameDto, profileImg);
     }
 
     @PostMapping("deleteprofile")
@@ -135,15 +137,15 @@ public class UserController {
         return profileNameService.getImgAll();
     }
 
-    @PostMapping("userSetProfileImg")
-    public void userSerProfileImg(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
-        User user = userService.findId(userId);
-        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
-
-//        System.out.println("Profile"+ profileNameDto);
-
-        profileNameService.setProfileImg(user, profileImg, profileNameDto);
-    }
+//    @PostMapping("userSetProfileImg")
+//    public void userSerProfileImg(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
+//        User user = userService.findId(userId);
+//        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
+//
+////        System.out.println("Profile"+ profileNameDto);
+//
+//        profileNameService.setProfileImg(user, profileImg, profileNameDto);
+//    }
 
 //    @PostMapping("findProfileImg")
 //    public void findProfileImg(@RequestBody ProfileImgDto profileImgDto) {
